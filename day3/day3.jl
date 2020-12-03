@@ -6,24 +6,14 @@ data_2 = data.^321;
 
 function trees(r, d)
     count = 0
-    # i = 1
     j = 1
-    if d > 1
-        for i in 1:size(data_2, 1)
-            if (i*d-(d-1) <= size(data_2, 1))
-                if (string(data_2[i*d-(d-1)][j]) == "#")
-                    count += 1
-                end
-            end
-            j += r
-        end
-    else
-        for i in 1:size(data_2, 1)
-            if (string(data_2[i][j]) == "#")
+    for i in 1:size(data_2, 1)
+        if (i*d-(d-1) <= size(data_2, 1))
+            if (string(data_2[i*d-(d-1)][j]) == "#")
                 count += 1
             end
-            j += r
         end
+        j += r
     end
     return count
 end
